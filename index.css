@@ -1,0 +1,602 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: rgb(46,46,46);
+    background: linear-gradient(90deg, rgba(46,46,46,1) 0%, rgba(0,0,0,1) 0%, rgba(16,17,17,1) 0%);
+}
+
+.backgroundvideo{
+    position :relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    min-width: 100vw;
+    min-height: 100vh;
+    border: none;
+    background-color: transparent;
+}
+
+.backgroundvideo video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This ensures the video covers the entire container */
+    border: none; /* Remove any border */
+}
+
+.backgroundvideo::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Adjust the alpha (last) value for transparency */
+    z-index: 0;
+    
+}
+#blackscreen{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 135vh;
+    background-color: black;
+    z-index: 1000;
+    animation: fadeIn 7s ease-in-out forwards;
+
+}
+/* Add this to your existing CSS */
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.overflow-scroll {
+    overflow-y: scroll;
+}
+
+@keyframes fadeIn {
+    from {
+        background: rgba(0, 0, 0, 1); /* Start with black overlay */
+    }
+    to {
+        background: rgba(0, 0, 0, 0); /* End with transparent overlay */
+        display: none;
+    }
+}
+
+@font-face {
+    font-family: 'Akira';
+    src: url('Fonts/Futura\ Bold\ font.ttf') format('woff2'),
+         url('Fonts/Futura\ Bold\ font.ttf') format('woff'),
+         url('Fonts/Futura\ Bold\ font.ttf') format('truetype');
+    /* Add more src lines for additional font formats if needed */
+    font-weight: normal; 
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: 'Futura';
+    src:  url('Fonts/Futura\ Heavy\ font.ttf') format('woff2'),
+    url('Fonts/Futura\ Heavy\ font.ttf') format('woff'),
+    url('Fonts/Futura\ Heavy\ font.ttf') format('truetype');
+    font-weight: bolder; 
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: 'Futura2';
+    src:   url('Fonts/Futura\ Extra\ Black\ font.ttf') format('woff2'),
+    url('Fonts/Futura\ Extra\ Black\ font.ttf') format('woff'),
+    url('Fonts/Futura\ Extra\ Black\ font.ttf') format('truetype');
+
+    font-weight: lighter; 
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: 'Akira2';
+    src:   url('Fonts/Akira\ Expanded\ Demo.otf') format('woff2'),
+    url('Fonts/Akira\ Expanded\ Demo.otf') format('woff'),
+    url('Fonts/Akira\ Expanded\ Demo.otf') format('truetype');
+
+    font-weight: normal; 
+    font-style: normal; 
+}
+
+.headline{
+    display: inline-block;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    font-family: 'Akira2';
+    color: white;
+    font-size: 100px;
+    font-weight: 1200;
+    text-shadow: 0px 5px 5px black;
+    z-index: 1;
+}
+.headline span{
+    color: red;
+}
+
+.text{
+    white-space: nowrap;
+}
+
+.getStarted{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    z-index: 2;
+}
+
+.getStarted button{
+    width: 180px;
+    height: 40px;
+    border-radius: 30px;
+    border: none;
+    font-size: 17px;
+    padding-top: 2.3px;
+    font-weight: bolder;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px black;
+    transition: all 0.6s ease;
+    background-color:rgb(216, 216, 216);
+}
+.getStarted button:hover{
+background-color: black;
+color: white;
+border: 1px solid white;
+}
+.stuff{
+    margin-top: -90px;
+}
+header{
+width: 100%;
+height: 1850px;
+}
+.infoBox{
+    position: relative;
+    width: 1200px;
+    height: 500px;
+    box-shadow: 0px 0px 15px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 215px auto;
+    border-radius: 30px;
+    animation: scrolling2 2s ease-in-out forwards;
+    animation-timeline: view();
+    animation-range-start: 0px;
+    animation-range-end: 700px;
+
+}
+@keyframes scrolling2 {
+    from{
+       opacity: 0;
+       margin: 215px auto;
+       width: 1000px;
+       height: 500px;
+    }
+    to{
+     opacity: 1;
+     margin: 180px auto;
+     width: 1200px;
+     height: 500px;
+    }
+}
+.infotext{
+    position: absolute;
+    top: 130%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    font-family: 'Futura';
+    font-weight: bolder;
+    background-image: linear-gradient(90deg, rgb(197, 194, 194) 29%, rgba(139,137,137,1) 53%, rgb(29, 29, 29) 150%);
+    -webkit-background-clip:text;
+    color: transparent;
+    animation: scrolling 2s ease-in-out;
+    animation-timeline: view();
+    animation-range-start: 0px;
+    opacity: 0;
+}
+
+@keyframes scrolling {
+    from{
+       opacity: 0;
+       top: 140%;
+       font-size: 40px;
+    }
+    to{
+     opacity: 1;
+     top: 120%;
+     font-size: 50px;
+    }
+}
+
+.navbar{
+    position: sticky;
+    display: flex;
+    width: 3000px;
+    height: 55px;
+    top: 0;
+    padding: 0px 170px;
+    padding-top: 10px;
+    gap: 110px;
+    z-index: 999;
+    backdrop-filter: blur(50px);
+}
+.navbar a{
+    text-decoration: dashed;
+    color: var(--text-color);
+    padding-top: 5px;
+    text-shadow: 0px 0px 10px black;
+}
+#navbarTitle{
+    margin-left: -100px;
+}
+.Search input{
+    border-radius: 30px;
+    border: none;
+    width: 410px;
+    height: 30px;
+    padding-left: 30px;
+}
+
+:root{
+    --text-color : white
+}
+
+.searchicon{
+    position: relative;
+    right: 50px;
+}
+#navbarTitle {
+    color: var(--text-color);
+    font-family: 'Akira2';
+    padding-top: 5px;
+}
+#navbarButton {
+    width: 80px;
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+    font-size: 15px;
+    padding-top: 1px;
+    font-weight: bolder;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px black;
+    transition: all 0.6s ease;
+    background-color:rgb(216, 216, 216);
+    margin-top: 1px;
+}
+
+#navbarButton:hover{
+background-color: black;
+color: white;
+border: 1px solid white;
+}
+#navbarService{
+    font-size: 18px;
+}
+#navbarAbout{
+    font-size: 18px;
+}
+.info{
+    position: relative;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 0px 60px 0px 60px;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    margin: 50px auto;
+    text-align: justify;
+}
+
+.categoriestext {
+    position: absolute;
+    top: 260%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Futura';
+    font-weight: bolder;
+    background-image: linear-gradient(90deg, rgb(197, 194, 194) 29%, rgba(139, 137, 137, 1) 53%, rgb(29, 29, 29) 150%);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: scrolling3 2s ease-in-out;
+    animation-timeline: view();
+    animation-range-start: 0px;
+    opacity: 0;
+}
+
+@keyframes scrolling3 {
+    from{
+        opacity: 0;
+        top: 260%;
+        font-size: 40px;
+     }
+     to{
+      opacity: 1;
+      top: 240%;
+      font-size: 50px;
+     }
+}
+
+.categories{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 50px; /* Adjust as needed */
+    margin-top: 20px; /* Adjust as needed */
+
+}
+.images img{
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
+    object-fit: cover;
+}
+.images{
+    text-align: center;
+    margin-top: 40px;
+}
+.left{
+    margin-left: -50rem;
+    animation: leftScroll 2s ease-in-out forwards;
+    animation-timeline: view();
+    animation-range: 100px contain;
+}
+
+@keyframes leftScroll {
+    from{
+    margin-left: -50rem;
+    opacity: 0;
+    }
+    to{
+    margin-left: 1rem;
+    opacity: 1;
+    }
+}
+.right{
+    margin-right: -50rem;
+    animation: rightScroll 2s ease-in-out forwards;
+    animation-timeline: view();
+    animation-range: 100px contain;
+}
+@keyframes rightScroll {
+    from{
+    margin-right: -50rem;
+    opacity: 0;
+    }
+    to{
+    margin-right: 1rem;
+    opacity: 1;
+    }
+}
+
+.middle {
+    margin-top: 100px;
+    animation: downtoup 2s ease-in-out forwards;
+    animation-timeline: view();
+    opacity: 0; /* Set initial opacity to 0 */
+}
+
+@keyframes downtoup {
+    from {
+        margin-top: 100px;
+        opacity: 0;
+    }
+    to {
+       margin-top: 20px;
+        opacity: 1;
+    }
+}
+ /* Setting Up The Platforms  */
+
+ section{
+    height: 1000px;
+    margin-top: 350px;
+ }
+
+ #PLATFORMS{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 210px;
+    font-family: 'Futura';
+    font-weight: bolder;
+    background-image: linear-gradient(90deg, rgb(197, 194, 194) 29%, rgba(139, 137, 137, 1) 53%, rgb(29, 29, 29) 150%);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: scrolling4 2s ease-in-out forwards;
+    animation-timeline: view();
+    opacity: 0;
+}
+
+@keyframes scrolling4 {
+    from{
+        opacity: 0;
+        font-size: 40px;
+        margin-top: 210px;
+    }
+    to{
+        opacity: 1;
+        font-size: 50px;
+        margin-top: 190px;
+    }
+}
+
+
+.platforms{
+    margin-top: 40px;
+    height: 130px;
+    width: 100%;
+    position: relative;
+    white-space: nowrap;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+/* <<<<<<<<<<<<<<<<<<<<<<<< Adding Icons Animation>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+.platforms::before{
+background: rgb(46,46,46);
+background: linear-gradient(90deg, rgba(46,46,46,1) 0%, rgba(0,0,0,1) 0%, rgba(16,17,17,1) 0% , rgba(0, 0, 0, 0)100%);;        
+content: '';
+height: 100%;
+width: 15%;
+position: absolute;
+z-index: 1;
+}
+.platforms::after{
+background: rgb(46,46,46);
+background: linear-gradient(to left, rgba(46,46,46,1) 0%, rgba(0,0,0,1) 0%, rgba(16,17,17,1) 0% , rgba(0, 0, 0, 0)100%);;   
+content: '';
+height: 100%;
+width: 20%;
+position: absolute;
+z-index: 1;
+}
+.platforms::before{
+    left: 0;
+    top: 0;
+}
+.platforms::after{
+    right: 0;
+    top: 0;
+}
+.platformslogo{
+    width: calc(250px * 12);
+    display: flex;
+    margin-top: 20px;
+    animation: slidelogo 16s linear infinite;
+    position: relative;
+    overflow: hidden;
+    --offset: 3px;
+    
+}
+@keyframes slidelogo {
+0%{
+transform: translateX(0);
+}
+100%{
+    transform: translateX(calc(-250px*6));
+}
+}
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Setting Up The Images>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.platformslogo img{
+margin-top: 7px;
+width: 100%;
+filter: saturate(4);
+filter: brightness(1);
+filter: contrast(1);
+transition: 0.5s;
+}
+.platformslogo img:hover{
+filter: none;
+}
+
+.platforms .slide img{
+    width: 70%;
+}
+.slide{
+
+height: 60px;
+width: 350px;
+display: flex;
+justify-content: center;
+align-items: center;
+perspective: 100px;
+z-index: 1;
+}       
+.slide1{
+width: 180px;
+}
+.slide2{
+width: 200px;
+}
+.slide3{
+width: 60px;
+}
+.slide4{
+width: 75px;
+}
+.slide5{
+width: 170px;
+}
+.slide6{
+width: 65px;
+}
+.platforms{
+    animation: scrolling5 2s ease-in-out forwards;
+    animation-timeline: view();
+    opacity: 0;
+    margin-top: 150px;
+}
+
+@keyframes scrolling5 {
+    from{
+    margin-top: 150px;
+    opacity: 0;
+    }
+    to{
+    margin-top: 100px;
+    opacity: 1;
+    }
+}
+.text{
+    color: white;
+    margin-top: 20px;
+    font-family: 'Futura';
+}
+
+.ViewMore button{
+    position: relative;
+    top: 280%;
+    left: 150%;
+    transform: translate(-50% , -50%);
+    width: 100px;
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+    font-size: 15px;
+    padding-top: 1px;
+    font-weight: bolder;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px black;
+    transition: all 0.6s ease;
+    background-color:rgb(216, 216, 216);
+    margin-top: 1px;
+    animation: downtoup2 2s ease-in-out forwards;
+    animation-timeline: view();
+    opacity: 0; 
+}
+.ViewMore button:hover{
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+@keyframes downtoup2 {
+    from{
+    opacity: 0;
+    top: 280%;
+    width: 100px;
+    }
+    to{
+     opacity: 1;
+     top: 270%;
+     width: 110px;
+
+    }
+}
